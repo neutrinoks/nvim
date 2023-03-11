@@ -1,16 +1,21 @@
--- General editor settings
-vim.cmd(':set number')
-vim.cmd(':set number')
-vim.cmd(':set relativenumber')
-vim.cmd(':set autoindent')
-vim.cmd(':set tabstop=4')
-vim.cmd(':set shiftwidth=4')
-vim.cmd(':set smarttab')
-vim.cmd(':set softtabstop=4')
-vim.cmd(':set mouse=a')
+-- General editor settings ----------------------------------------------------
+vim.cmd('set number')
+vim.cmd('set relativenumber')
+vim.cmd('set autoindent')
+vim.cmd('set tabstop=4')
+vim.cmd('set shiftwidth=4')
+vim.cmd('set smarttab')
+vim.cmd('set softtabstop=4')
+vim.cmd('set mouse=a')
 
 
--- Plugin-Manager / Plugins
+-- Key Remappings -------------------------------------------------------------
+
+vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+
+-- Plugin-Manager / Plugins ---------------------------------------------------
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin') -- call plug#begin()
@@ -23,11 +28,15 @@ vim.call('plug#begin') -- call plug#begin()
 vim.call('plug#end') -- call plug#end()
 
 
--- NerdTree Configuration
+-- NerdTree Configuration -----------------------------------------------------
 
 -- nnoremap <C-f> :NERDTreeFocus<CR>
--- nnoremap <C-n> :NERDTree<CR>
--- nnoremap <C-t> :NERDTreeToggle<CR>
+vim.cmd('nnoremap <C-n> :NERDTree<CR>')
+vim.cmd('nnoremap <C-t> :NERDTreeToggle<CR>')
 
--- let g:NERDTreeDirArrowExpandable="+"
--- let g:NERDTreeDirArrowCollapsible="~"
+
+
+-- Additional Configuration Scripts in './Lua' --------------------------------
+
+require('treesitter')
+
