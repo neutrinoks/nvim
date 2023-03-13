@@ -4,14 +4,13 @@
 
 local Plug = vim.fn['plug#']
 
-
 vim.call('plug#begin') -- call plug#begin()
 
     -- more to be added here
     Plug('vim-airline/vim-airline') -- Airline (bottom info bar)
     -- Plug('vim-airline/vim-airline-themes') -- Airline Themes
     Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
-    Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
+     Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
     Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
     Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
@@ -31,7 +30,7 @@ vim.call('plug#begin') -- call plug#begin()
     -- Plug 'https://github.com/preservim/tagbar' -- Tagbar for code navigation
     -- Plug 'https://github.com/terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
     -- YouCompleteMe
-    Plug('tpope/vim-fugitive')
+    Plug('tpope/vim-fugitive') -- Some git-plugin for Airline...
     
 vim.call('plug#end') -- call plug#end()
 
@@ -47,8 +46,8 @@ require('colorscheme')
 require('general')
 require('blankline')
 require('airline')
+require('telescope')
 -- require('nerdcommenter')
--- require('airline')
 
 -- for longer embedded vim-code:
 -- vim.cmd [[
