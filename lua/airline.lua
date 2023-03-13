@@ -17,8 +17,8 @@ vim.cmd [[
     endif
 
     " unicode symbols
-    let g:airline_left_sep = '❱'
-    let g:airline_right_sep = '❮'
+    let g:airline_left_sep = '🭀'
+    let g:airline_right_sep = '🭋'
     let g:airline_symbols.colnr = ' C:'
     let g:airline_symbols.crypt = '🔒'
     let g:airline_symbols.linenr = ' L:'
