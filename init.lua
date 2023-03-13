@@ -11,6 +11,8 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
     Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
+    Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
+    -- Plug 'mg979/vim-visual-multi' -- Multiple cursors, must see!
     -- Plug('neoclide/coc.nvim') -- Conquer of Completion (code completion)
     -- Plug('https://github.com/ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('https://github.com/tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
@@ -36,6 +38,7 @@ require('nvim_tree')
 require('treesitter')
 require('colorscheme')
 require('general')
+require('blankline')
 -- require('airline')
 
 -- for longer embedded vim-code:
