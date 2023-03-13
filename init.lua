@@ -12,11 +12,7 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
     -- Plug('neoclide/coc.nvim') -- Conquer of Completion (code completion)
-    -- If you want to have icons in your statusline choose one of these
-    -- Plug('kyazdani42/nvim-web-devicons')
-    -- Plug('https://github.com/preservim/nerdtree') -- NerdTree (file tree browser)
     -- Plug('https://github.com/ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
-    -- Plug('vwxyutarooo/nerdtree-devicons-syntax')
     -- Plug('https://github.com/tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
     -- Plug('https://github.com/tpope/vim-commentary') -- Commentary (comment & uncomment code)
     -- Plug('preservim/nerdcommenter')
