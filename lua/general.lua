@@ -27,6 +27,7 @@ vim.cmd('set expandtab')
 vim.keymap.set('i', '<C-n>', '<ESC>')
 vim.keymap.set('v', '<C-n>', '<ESC>')
 
+vim.keymap.set('i', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<C-t>', vim.cmd.NvimTreeToggle)
 
 
