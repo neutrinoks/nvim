@@ -24,11 +24,11 @@ vim.cmd('set expandtab')
 -- vim.g.mapleader = ' '
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
-vim.keymap.set('i', '<C-n>', '<ESC>')
-vim.keymap.set('v', '<C-n>', '<ESC>')
+vim.keymap.set('i', '<C-.>', '<ESC>')
+vim.keymap.set('v', '<C-.>', '<ESC>')
 
 vim.keymap.set('i', '<C-s>', vim.cmd.w)
-vim.keymap.set('n', '<C-t>', vim.cmd.NvimTreeToggle)
+vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
 
 
 -- Individual Methods for daily use -------------------------------------------

@@ -34,7 +34,7 @@ vim.opt.guifont = { "Hack Nerd Font", "h12" }
 
 -- Additional Configuration Scripts in './Lua' --------------------------------
 
-require('nvim_tree')
+require('nvimtree')
 require('treesitter')
 require('colorscheme')
 require('general')
