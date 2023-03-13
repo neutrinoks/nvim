@@ -18,6 +18,8 @@ vim.call('plug#begin') -- call plug#begin()
     -- Plug('https://github.com/tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
     -- Plug('https://github.com/tpope/vim-commentary') -- Commentary (comment & uncomment code)
     Plug('preservim/nerdcommenter') -- Commenting tool, tbt
+    Plug('nvim-lua/plenary.nvim')
+    Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.1'})
     -- Plug('mhinz/vim-startify')
     -- Plug 'dracula/vim'
     -- Plug 'ryanoasis/vim-devicons'
