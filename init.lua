@@ -17,7 +17,7 @@ vim.call('plug#begin') -- call plug#begin()
     -- Plug('https://github.com/ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('https://github.com/tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
     -- Plug('https://github.com/tpope/vim-commentary') -- Commentary (comment & uncomment code)
-    -- Plug('preservim/nerdcommenter')
+    Plug('preservim/nerdcommenter') -- Commenting tool, tbt
     -- Plug('mhinz/vim-startify')
     -- Plug 'dracula/vim'
     -- Plug 'ryanoasis/vim-devicons'
@@ -39,6 +39,7 @@ require('treesitter')
 require('colorscheme')
 require('general')
 require('blankline')
+require('nerdcommenter')
 -- require('airline')
 
 -- for longer embedded vim-code:

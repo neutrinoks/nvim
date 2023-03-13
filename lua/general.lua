@@ -21,14 +21,17 @@ vim.cmd('set expandtab')
 -- <C> : represents Control key
 -- <A> : Alt key
 -- <ESC> : Escape key
--- vim.g.mapleader = ' '
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
-vim.keymap.set('i', '<C-.>', '<ESC>')
-vim.keymap.set('v', '<C-.>', '<ESC>')
+vim.g.mapleader = ' '
+
+vim.keymap.set('i', '<C-m>', '<ESC>')
+vim.keymap.set('v', '<C-m>', '<ESC>')
 
 vim.keymap.set('i', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
+
+-- vim.keymap.set('n', '<leader>gcc', vim.cmd.
 
 
 -- Individual Methods for daily use -------------------------------------------
