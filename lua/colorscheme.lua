@@ -63,6 +63,26 @@ require('material').setup({
 })
 
 
+
+-- Individual Methods for daily use -------------------------------------------
+
 vim.g.material_style = 'lighter'
 vim.cmd('colorscheme material')
+
+-- material scheme, variants:
+-- darker, lighter, oceanic, palenight, deep ocean
+
+function setcolorsnight()
+    vim.g.material_style = 'deep ocean'
+    vim.cmd('colorscheme material')
+end
+
+
+function setcolorsday()
+    vim.g.material_style = 'lighter'
+    vim.cmd('colorscheme material')
+end
+
+vim.cmd(':command! Daylight lua setcolorsday()')
+vim.cmd(':command! Night lua setcolorsnight()')
 

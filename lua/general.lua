@@ -1,5 +1,6 @@
 -- General Editor Settings ----------------------------------------------------
 
+-- vim.cmd('syntax on')
 vim.cmd('set number')
 vim.cmd('set relativenumber')
 vim.cmd('set autoindent')
@@ -10,6 +11,8 @@ vim.cmd('set softtabstop=4')
 vim.cmd('set mouse=a')
 vim.cmd('set hlsearch')
 vim.cmd('set expandtab')
+vim.cmd('set scrolloff=5')
+vim.cmd('set cc=100')
 -- check out: incsearch, mouse=v, showmatch, nocompatible, autoindent
 
 
@@ -31,23 +34,4 @@ vim.keymap.set('v', '<C-m>', '<ESC>')
 vim.keymap.set('i', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
 
-
--- Individual Methods for daily use -------------------------------------------
-
--- material scheme, variants:
--- darker, lighter, oceanic, palenight, deep ocean
-
-function setcolorsnight()
-    vim.g.material_style = 'deep ocean'
-    vim.cmd('colorscheme material')
-end
-
-
-function setcolorsday()
-    vim.g.material_style = 'lighter'
-    vim.cmd('colorscheme material')
-end
-
-vim.cmd(':command! Daylight lua setcolorsday()')
-vim.cmd(':command! Night lua setcolorsnight()')
 
