@@ -18,7 +18,7 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
     -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
-    -- Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
+    Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
     -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
     -- Plug('mhinz/vim-startify')
