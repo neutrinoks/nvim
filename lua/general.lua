@@ -1,6 +1,5 @@
 -- General Editor Settings ----------------------------------------------------
 
--- vim.cmd('syntax on')
 vim.cmd('set number')
 vim.cmd('set relativenumber')
 vim.cmd('set autoindent')
@@ -12,8 +11,9 @@ vim.cmd('set mouse=a')
 vim.cmd('set hlsearch')
 vim.cmd('set expandtab')
 vim.cmd('set scrolloff=5')
-vim.cmd('set cc=100')
--- check out: incsearch, mouse=v, showmatch, nocompatible, autoindent
+-- vim.cmd('set cc=100')
+vim.cmd('set showmatch')
+-- check out: incsearch, mouse=v, nocompatible, autoindent
 
 
 -- Key Remappings -------------------------------------------------------------
@@ -24,14 +24,9 @@ vim.cmd('set cc=100')
 -- <C> : represents Control key
 -- <A> : Alt key
 -- <ESC> : Escape key
--- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
+-- define a global mapleader: <spacebar>
 vim.g.mapleader = ' '
-
+-- exit insert mode, return to normal mode, by jj
 vim.keymap.set('i', 'jj', '<ESC>')
---vim.keymap.set('v', '<C-m>', '<ESC>')
-
-vim.keymap.set('i', '<C-s>', vim.cmd.w)
-vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
-
 
