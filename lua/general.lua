@@ -28,8 +28,8 @@ vim.cmd('set cc=100')
 
 vim.g.mapleader = ' '
 
-vim.keymap.set('i', '<C-m>', '<ESC>')
-vim.keymap.set('v', '<C-m>', '<ESC>')
+vim.keymap.set('i', 'jj', '<ESC>')
+--vim.keymap.set('v', '<C-m>', '<ESC>')
 
 vim.keymap.set('i', '<C-s>', vim.cmd.w)
 vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
