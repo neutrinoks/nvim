@@ -9,7 +9,7 @@ vim.call('plug#begin') -- call plug#begin()
     -- more to be added here
     Plug('tpope/vim-fugitive') -- Some git-plugin for Airline...
     Plug('vim-airline/vim-airline') -- Airline (bottom info bar)
-    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
+    -- Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
     Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
     Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
@@ -17,7 +17,7 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
-    Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
+    -- Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
     -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
     -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
@@ -75,12 +75,12 @@ vim.keymap.set('n', '<C-Right>', vim.cmd.tabnext)
 -- Additional Configuration Scripts in './Lua' --------------------------------
 
 require('nvimtree')
-require('treesitter')
+-- require('treesitter')
 require('colorscheme')
 require('blankline')
 require('airline')
 require('telescope')
-require('coc')
+-- require('coc')
 
 -- for longer embedded vim-code:
 -- vim.cmd [[
