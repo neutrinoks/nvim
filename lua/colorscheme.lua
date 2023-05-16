@@ -83,6 +83,6 @@ function setcolorsday()
     vim.cmd('colorscheme material')
 end
 
-vim.cmd(':command! Daylight lua setcolorsday()')
-vim.cmd(':command! Night lua setcolorsnight()')
+vim.cmd(':command! NeuDay lua setcolorsday()')
+vim.cmd(':command! NeuNight lua setcolorsnight()')
 
