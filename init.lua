@@ -17,7 +17,8 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
-    Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
+    Plug('neovim/nvim-lspconfig') -- LPSConfig
+    -- Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
     -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
     -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
@@ -32,7 +33,7 @@ vim.call('plug#begin') -- call plug#begin()
 vim.call('plug#end') -- call plug#end()
 
 vim.cmd('set encoding=UTF-8')
-vim.opt.guifont = { "Hack Nerd Font", "h12" }
+vim.opt.guifont = { "Hack Nerd Font", "h13" }
 
 
 -- General Editor Settings ----------------------------------------------------
@@ -47,10 +48,10 @@ vim.cmd('set softtabstop=4')
 vim.cmd('set mouse=a')
 vim.cmd('set hlsearch')
 vim.cmd('set expandtab')
-vim.cmd('set scrolloff=5')
+vim.cmd('set scrolloff=10')
 -- vim.cmd('set cc=100')
 vim.cmd('set showmatch')
--- check out: incsearch, mouse=v, nocompatible, autoindent
+-- check out: incsearch, mouse=v, nocompatible 
 
 
 -- Key Remappings -------------------------------------------------------------
@@ -67,8 +68,8 @@ vim.g.mapleader = ' '
 -- exit insert mode, return to normal mode, by jj
 vim.keymap.set('i', 'jj', '<ESC>')
 
-vim.keymap.set('n', '<C-Left>', vim.cmd.tabprevious)
-vim.keymap.set('n', '<C-Right>', vim.cmd.tabnext)
+-- vim.keymap.set('n', '<C-Left>', vim.cmd.tabprevious)
+-- vim.keymap.set('n', '<C-Right>', vim.cmd.tabnext)
 --nnoremap <C-Right> :tabnext<CR>
 --nnoremap <C-Left> :tabprevious<CR>
 
@@ -80,7 +81,8 @@ require('colorscheme')
 require('blankline')
 require('airline')
 require('telescope')
-require('coc')
+require('mylspconfig')
+-- require('coc')
 
 -- for longer embedded vim-code:
 -- vim.cmd [[
