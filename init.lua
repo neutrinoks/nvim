@@ -75,7 +75,7 @@ vim.cmd('set mouse=a')
 vim.cmd('set hlsearch')
 vim.cmd('set expandtab')
 vim.cmd('set scrolloff=10')
--- vim.cmd('set cc=100')
+vim.cmd('set cc=100')
 vim.cmd('set showmatch')
 -- check out: incsearch, mouse=v, nocompatible 
 
