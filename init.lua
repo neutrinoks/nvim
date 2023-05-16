@@ -6,7 +6,7 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin') -- call plug#begin()
 
-    -- more to be added here
+    -- Main Plugins -------------------------------------------------
     Plug('tpope/vim-fugitive') -- Some git-plugin for Airline...
     Plug('vim-airline/vim-airline') -- Airline (bottom info bar)
     Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
@@ -18,6 +18,7 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
     Plug('neovim/nvim-lspconfig') -- LPSConfig
+    Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
     -- Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
     -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
     -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
@@ -29,6 +30,31 @@ vim.call('plug#begin') -- call plug#begin()
     -- Plug 'preservim/tagbar' -- Tagbar for code navigation
     -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
     -- YouCompleteMe
+
+    -- Additional Plugins to extend nvim-cmp ------------------------
+    -- Plug('neovim/nvim-lspconfig')
+    Plug('hrsh7th/cmp-nvim-lsp')
+    Plug('hrsh7th/cmp-buffer')
+    Plug('hrsh7th/cmp-path')
+    Plug('hrsh7th/cmp-cmdline')
+
+    -- For vsnip users.
+    -- Plug 'hrsh7th/cmp-vsnip'
+    -- Plug 'hrsh7th/vim-vsnip'
+
+    -- For luasnip users.
+    Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
+    Plug('saadparwaiz1/cmp_luasnip')
+    -- TODO: Check friendly-snippet
+    -- Plug("rafamadriz/friendly-snippets")
+
+    -- For ultisnips users.
+    -- Plug 'SirVer/ultisnips'
+    -- Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+    -- For snippy users.
+    -- Plug 'dcampos/nvim-snippy'
+    -- Plug 'dcampos/cmp-snippy'
     
 vim.call('plug#end') -- call plug#end()
 
@@ -82,6 +108,7 @@ require('blankline')
 require('airline')
 require('telescope')
 require('mylspconfig')
+require('mycmp')
 -- require('coc')
 
 -- for longer embedded vim-code:
