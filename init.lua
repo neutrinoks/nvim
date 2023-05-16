@@ -15,21 +15,21 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
     Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
     Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
+    -- TODO: Check Plug('numToStr/Comment')
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
     Plug('neovim/nvim-lspconfig') -- LPSConfig
     Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
-    -- Plug('neoclide/coc.nvim', {['branch'] = 'release'}) -- Conquer of Completion
+    -- TODO: Also check out the following
+    -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
     -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
     -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
     -- Plug('mhinz/vim-startify')
     -- Plug 'ryanoasis/vim-devicons'
-    -- Plug 'SirVer/ultisnips'
     -- Plug 'honza/vim-snippets'
     -- Plug 'preservim/tagbar' -- Tagbar for code navigation
     -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
-    -- YouCompleteMe
 
     -- Additional Plugins to extend nvim-cmp ------------------------
     -- Plug('neovim/nvim-lspconfig')
