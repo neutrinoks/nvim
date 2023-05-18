@@ -21,7 +21,7 @@ local opt = vim.opt
 local g = vim.g
 local keymap = vim.keymap
 
-g.mapleader = ' '
+-- g.mapleader = ' '
 
 
 -- Plugin-Manager / Plugins ---------------------------------------------------
@@ -121,8 +121,8 @@ keymap.set('n', '<C-m>', vim.cmd.NvimTreeFocus, opts)
 
 -- Telescope relevant configuration
 local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, opts)
-keymap.set('n', '<leader>fg', builtin.live_grep, opts)
+keymap.set('n', '<A-f>', builtin.find_files, opts)
+keymap.set('n', '<A-g>', builtin.live_grep, opts)
 -- vim.keymap.set('n', '<leader>ft', builtin.git_files, {})
 -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
@@ -138,6 +138,7 @@ keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- -> in cfg_cmp.lua
 
 -- Barbar Keymapping
-keymap.set('n', '<C-,>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set('n', '<C-.>', '<Cmd>BufferNext<CR>', opts)
+keymap.set({'n','i'}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set({'n','i'}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
 keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
+

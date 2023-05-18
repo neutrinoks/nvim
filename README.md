@@ -22,3 +22,17 @@ When running NeoVim for the first time execute:
 ```
 :PlugInstall
 ```
+
+### Current Plugins
+
+- nvim-tree/nvim-tree: 
+- nvim-tree/nvim-web-devicons
+- nvim-lualine/lualine
+- nvim-telescope/telescope
+- nvim-lua/plenary
+- nvim-treesitter/nvim-treesitter
+- lukas-reineke/indent-blankline
+- romgrk/barbar
+- hrsh7th/nvim-cmp & several addons
+- neovim/nvim-lspconfig
+- L3MON4D3/LuaSnip
