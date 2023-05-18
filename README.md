@@ -26,6 +26,7 @@ When running NeoVim for the first time execute:
 ```
 :PlugInstall
 ```
+then restart to make all changes applied properly.
 
 ### Current Plugins
 

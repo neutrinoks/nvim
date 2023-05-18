@@ -82,7 +82,7 @@ opt.hlsearch = true
 opt.mouse = a
 opt.expandtab = true
 opt.scrolloff = 10
-opt.colorcolumn = "100"
+opt.colorcolumn = "101"
 opt.showmatch = true
 opt.cursorline = false
 opt.showmode = false
@@ -99,7 +99,6 @@ require('cfg_blankline')
 require('cfg_lspconfig')
 require('cfg_cmp')
 require('cfg_lualine')
--- require('cfg_tabline')
 
 
 -- Key Remappings -------------------------------------------------------------
