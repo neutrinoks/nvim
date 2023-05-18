@@ -12,18 +12,15 @@ require("nvim-tree").setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = false,
-  },
-  git = {
-    ignore = false,
-  },
+        sort_by = "case_sensitive",
+        renderer = {
+                group_empty = true,
+        },
+        filters = {
+                dotfiles = false,
+        },
+        git = {
+                ignore = false,
+        },
 })
 
--- add individual related keymap
-vim.keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
-vim.keymap.set('n', '<C-f>', vim.cmd.NvimTreeFocus)

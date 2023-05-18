@@ -35,16 +35,17 @@ vim.call('plug#begin') -- call plug#begin()
     Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
     Plug('nvim-lualine/lualine.nvim') -- LuaLine
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
+    Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
+    Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
+    -- Nvim-Cmp
     Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
-
-    -- Additional Plugins to extend nvim-cmp ------------------------
     Plug('neovim/nvim-lspconfig') -- LPSConfig
     Plug('hrsh7th/cmp-nvim-lsp')
     Plug('hrsh7th/cmp-buffer')
     Plug('hrsh7th/cmp-path')
     Plug('hrsh7th/cmp-cmdline')
-    -- For luasnip users.
+    -- Nvim-Cmp: For luasnip users.
     Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
     Plug('saadparwaiz1/cmp_luasnip')
     -- TODO: Check friendly-snippet
@@ -52,10 +53,8 @@ vim.call('plug#begin') -- call plug#begin()
 
     -- Experimental Plugins /  To be checked ...
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
-    Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
     Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
     -- TODO: Check Plug('numToStr/Comment')
-    Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     -- TODO: Also check out the following
     -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
     -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
@@ -98,8 +97,6 @@ require('cfg_nvimtree')
 require('cfg_treesitter')
 require('cfg_colorscheme')
 require('cfg_blankline')
--- require('cfg_airline')
--- require('cfg_telescope')
 require('cfg_lspconfig')
 require('cfg_cmp')
 require('cfg_lualine')
@@ -111,11 +108,18 @@ require('cfg_lualine')
 keymap.set({'n','i','v'}, '<leader>cv', 'Ex')
 
 -- exit insert mode, return to normal mode, by jj
-vim.keymap.set('i', 'jj', '<ESC>')
+keymap.set('i', 'jj', '<ESC>')
 
--- vim.keymap.set('n', '<C-Left>', vim.cmd.tabprevious)
--- vim.keymap.set('n', '<C-Right>', vim.cmd.tabnext)
---nnoremap <C-Right> :tabnext<CR>
---nnoremap <C-Left> :tabprevious<CR>
+-- NvimTree Keymapping
+keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
+keymap.set('n', '<C-f>', vim.cmd.NvimTreeFocus)
+
+-- Telescope relevant configuration
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- vim.keymap.set('n', '<leader>ft', builtin.git_files, {})
+-- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 
