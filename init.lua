@@ -104,40 +104,40 @@ require('cfg_lualine')
 
 -- Key Remappings -------------------------------------------------------------
 
--- Close a window or a tab by: Ctrl+w
-keymap.set('n', '<C-w>', vim.cmd.close)
+local opts = { noremap = true, silent = true }
+
 -- Exit insert mode, return to normal mode, by jj
-keymap.set('i', 'jj', '<ESC>')
+keymap.set('i', 'jj', '<ESC>', opts)
 -- Search by: Ctrl-f
-keymap.set({'n','i'}, '<C-f>', '/')
+keymap.set({'n','i'}, '<C-f>', '/', opts)
 -- Save file by: Ctrl-s
-keymap.set({'n','i'}, '<C-s>', vim.cmd.w)
+keymap.set({'n','i'}, '<C-s>', vim.cmd.w, opts)
 -- Pseudo-quit, aka close by: Alt-q
-keymap.set('n', '<A-q>', vim.cmd.q)
+keymap.set('n', '<A-q>', vim.cmd.q, opts)
 
 -- NvimTree Keymapping
-keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
-keymap.set('n', '<C-m>', vim.cmd.NvimTreeFocus)
+keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle, opts)
+keymap.set('n', '<C-m>', vim.cmd.NvimTreeFocus, opts)
 
 -- Telescope relevant configuration
 local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, {})
-keymap.set('n', '<leader>fg', builtin.live_grep, {})
+keymap.set('n', '<leader>ff', builtin.find_files, opts)
+keymap.set('n', '<leader>fg', builtin.live_grep, opts)
 -- vim.keymap.set('n', '<leader>ft', builtin.git_files, {})
 -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- LspConfig Keymapping
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-keymap.set('n', '<space>e', vim.diagnostic.open_float)
-keymap.set('n', '[d', vim.diagnostic.goto_prev)
-keymap.set('n', ']d', vim.diagnostic.goto_next)
-keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- NvimCmp keymappingin
 -- -> in cfg_cmp.lua
 
 -- Barbar Keymapping
-keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
-
+keymap.set('n', '<C-,>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set('n', '<C-.>', '<Cmd>BufferNext<CR>', opts)
+keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
