@@ -28,44 +28,43 @@ g.mapleader = ' '
 
 local Plug = vim.fn['plug#']
 
-vim.call('plug#begin') -- call plug#begin()
+vim.call('plug#begin')
+        -- Main Plugins -------------------------------------------------
+        Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
+        Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
+        Plug('nvim-lualine/lualine.nvim') -- LuaLine
+        Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
+        Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
+        Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
+        Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
+        Plug('romgrk/barbar.nvim')
+        -- Nvim-Cmp
+        Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
+        Plug('neovim/nvim-lspconfig') -- LPSConfig
+        Plug('hrsh7th/cmp-nvim-lsp')
+        Plug('hrsh7th/cmp-buffer')
+        Plug('hrsh7th/cmp-path')
+        Plug('hrsh7th/cmp-cmdline')
+        -- Nvim-Cmp: For luasnip users.
+        Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
+        Plug('saadparwaiz1/cmp_luasnip')
+        -- TODO: Check friendly-snippet
+        -- Plug("rafamadriz/friendly-snippets")
 
-    -- Main Plugins -------------------------------------------------
-    Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
-    Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
-    Plug('nvim-lualine/lualine.nvim') -- LuaLine
-    Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
-    Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
-    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
-    Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
-    -- Nvim-Cmp
-    Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
-    Plug('neovim/nvim-lspconfig') -- LPSConfig
-    Plug('hrsh7th/cmp-nvim-lsp')
-    Plug('hrsh7th/cmp-buffer')
-    Plug('hrsh7th/cmp-path')
-    Plug('hrsh7th/cmp-cmdline')
-    -- Nvim-Cmp: For luasnip users.
-    Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
-    Plug('saadparwaiz1/cmp_luasnip')
-    -- TODO: Check friendly-snippet
-    -- Plug("rafamadriz/friendly-snippets")
-
-    -- Experimental Plugins /  To be checked ...
-    Plug('marko-cerovac/material.nvim') -- Colorscheme material
-    Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
-    -- TODO: Check Plug('numToStr/Comment')
-    -- TODO: Also check out the following
-    -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
-    -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
-    -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
-    -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
-    -- Plug('mhinz/vim-startify')
-    -- Plug 'ryanoasis/vim-devicons'
-    -- Plug 'honza/vim-snippets'
-    -- Plug 'preservim/tagbar' -- Tagbar for code navigation
-    -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
-
+        -- Experimental Plugins /  To be checked ...
+        Plug('marko-cerovac/material.nvim') -- Colorscheme material
+        Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
+        -- TODO: Check Plug('numToStr/Comment')
+        -- TODO: Also check out the following
+        -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
+        -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
+        -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
+        -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
+        -- Plug('mhinz/vim-startify')
+        -- Plug 'ryanoasis/vim-devicons'
+        -- Plug 'honza/vim-snippets'
+        -- Plug 'preservim/tagbar' -- Tagbar for code navigation
+        -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
 vim.call('plug#end') -- call plug#end()
 
 
@@ -100,6 +99,7 @@ require('cfg_blankline')
 require('cfg_lspconfig')
 require('cfg_cmp')
 require('cfg_lualine')
+-- require('cfg_tabline')
 
 
 -- Key Remappings -------------------------------------------------------------
@@ -110,10 +110,14 @@ keymap.set('n', '<C-w>', vim.cmd.close)
 keymap.set('i', 'jj', '<ESC>')
 -- Search by: Ctrl-f
 keymap.set({'n','i'}, '<C-f>', '/')
+-- Save file by: Ctrl-s
+keymap.set({'n','i'}, '<C-s>', vim.cmd.w)
+-- Pseudo-quit, aka close by: Alt-q
+keymap.set('n', '<A-q>', vim.cmd.q)
 
 -- NvimTree Keymapping
 keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
-keymap.set('n', '<C-f>', vim.cmd.NvimTreeFocus)
+keymap.set('n', '<C-m>', vim.cmd.NvimTreeFocus)
 
 -- Telescope relevant configuration
 local builtin = require('telescope.builtin')
@@ -125,11 +129,15 @@ keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
 -- LspConfig Keymapping
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+keymap.set('n', '<space>e', vim.diagnostic.open_float)
+keymap.set('n', '[d', vim.diagnostic.goto_prev)
+keymap.set('n', ']d', vim.diagnostic.goto_next)
+keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- NvimCmp keymappingin
 -- -> in cfg_cmp.lua
+
+-- Barbar Keymapping
+keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 
