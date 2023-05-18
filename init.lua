@@ -87,8 +87,8 @@ opt.colorcolumn = "100"
 opt.showmatch = true
 opt.cursorline = false
 opt.showmode = false
--- opt.laststatus = 3
 opt.incsearch = true
+opt.laststatus = 3
 
 
 -- Additional Configuration Scripts in './Lua' --------------------------------
@@ -104,11 +104,12 @@ require('cfg_lualine')
 
 -- Key Remappings -------------------------------------------------------------
 
--- Open Ex via '<space> c v'
-keymap.set({'n','i','v'}, '<leader>cv', 'Ex')
-
--- exit insert mode, return to normal mode, by jj
+-- Close a window or a tab by: Ctrl+w
+keymap.set('n', '<C-w>', vim.cmd.close)
+-- Exit insert mode, return to normal mode, by jj
 keymap.set('i', 'jj', '<ESC>')
+-- Search by: Ctrl-f
+keymap.set({'n','i'}, '<C-f>', '/')
 
 -- NvimTree Keymapping
 keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle)
@@ -116,10 +117,19 @@ keymap.set('n', '<C-f>', vim.cmd.NvimTreeFocus)
 
 -- Telescope relevant configuration
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+keymap.set('n', '<leader>ff', builtin.find_files, {})
+keymap.set('n', '<leader>fg', builtin.live_grep, {})
 -- vim.keymap.set('n', '<leader>ft', builtin.git_files, {})
 -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- LspConfig Keymapping
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+-- NvimCmp keymappingin
+-- -> in cfg_cmp.lua
 
