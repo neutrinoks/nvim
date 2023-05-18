@@ -2,6 +2,10 @@
 
 This is my personal NeoVim configuration. Just stored in a repository for being flexible, when experimenting with third-party pre-configured scripts (e.g. NvChad).
 
+### Requirements
+
+NeoVim in version `0.9.0` is required!
+
 ### Installation
 
 To install it completely new, remove existing configurations:
