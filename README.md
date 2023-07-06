@@ -4,7 +4,10 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
 
 ### Requirements
 
-NeoVim in version `0.9.0` is required!
+- NeoVim in version `0.9.0` is required!
+- Nerd Fonts are required for nice display of icons (currently Cousine Nerd Font is configured,
+  which is packed into this directory)
+- Because telescope is included in this configuration, `ripgrep` package is required.
 
 ### Installation
 
