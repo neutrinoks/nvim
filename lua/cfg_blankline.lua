@@ -1,7 +1,13 @@
 -- Blankline Configuration
+vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
 
-require("indent_blankline").setup {
-        -- for example, context is off by default, use this to turn it on
-        show_current_context = true,
-        show_current_context_start = true,
+local highlight = {
+        "RainbowBlue",
+}
+
+require("ibl").setup {
+        scope = {
+                enabled = true,
+                highlight = highlight,
+        },
 }
