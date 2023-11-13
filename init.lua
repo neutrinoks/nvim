@@ -54,6 +54,7 @@ vim.call('plug#begin')
         -- Experimental Plugins /  To be checked ...
         Plug('marko-cerovac/material.nvim') -- Colorscheme material
         Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
+        Plug('akinsho/git-conflict.nvim') -- Git-conflict visualization
         -- TODO: Check Plug('numToStr/Comment')
         -- TODO: Also check out the following
         -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
@@ -99,6 +100,7 @@ require('cfg_blankline')
 require('cfg_lspconfig')
 require('cfg_cmp')
 require('cfg_lualine')
+require('cfg_gitconflict')
 
 
 -- Key Remappings -------------------------------------------------------------
