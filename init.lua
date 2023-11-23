@@ -37,7 +37,7 @@ vim.call('plug#begin')
         Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
         Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
         Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
-        Plug('romgrk/barbar.nvim')
+        Plug('romgrk/barbar.nvim') -- Tabline, alternative tbc: akinsho/bufferline
         -- Nvim-Cmp
         Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
         Plug('neovim/nvim-lspconfig') -- LPSConfig
@@ -77,8 +77,9 @@ opt.number = true
 opt.relativenumber = true
 opt.autoindent = true
 opt.tabstop = 4
+-- opt.softtabstop = 4
+opt.shiftwidth = 4
 opt.smarttab = true
-opt.softtabstop = 4
 opt.hlsearch = true
 opt.mouse = a
 opt.expandtab = true
@@ -101,6 +102,7 @@ require('cfg_lspconfig')
 require('cfg_cmp')
 require('cfg_lualine')
 require('cfg_gitconflict')
+require('cfg_barbar')
 
 
 -- Key Remappings -------------------------------------------------------------
