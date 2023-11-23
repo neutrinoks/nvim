@@ -8,24 +8,27 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
 - Nerd Fonts are required for nice display of icons (currently Cousine Nerd Font is configured,
   which is packed into this directory)
 - Because telescope is included in this configuration, `ripgrep` package is required.
+- Because tree-sitter is configured for Rust and Python linting, `pyright` needs to be installed.
 
 ### Installation
 
-To install it completely new, remove existing configurations:
+Step 1: Install requirements mentioned above!
+
+Step 2: To install it completely new, remove existing configurations:
 ```bash
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
 ```
 
-Then clone this repository and install VimPlug:
+Step 3: Then clone this repository and install VimPlug:
 ```bash
 git clone https://github.com/neutrinoks/nvim.git ~/.config/nvim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
-When running NeoVim for the first time execute:
+Step 4: When running NeoVim for the first time execute:
 ```
 :PlugInstall
 ```
