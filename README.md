@@ -37,7 +37,7 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
       unzip Cousine.zip
       sudo mv *.ttf /usr/share/fonts/TTF
       ```
-      For using another Nerd Font, see [this section](###using-another-nerd-font).
+      For using another Nerd Font, see [this section](#using-another-nerd-font).
 - Step 3: Remove existing configurations completely, to avoid conflicts:
   ```sh
   rm -rf ~/.config/nvim
