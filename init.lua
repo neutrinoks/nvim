@@ -111,8 +111,6 @@ local opts = { noremap = true, silent = true }
 
 -- Exit insert mode, return to normal mode, by jj
 keymap.set('i', 'jj', '<ESC>', opts)
--- Search by: Ctrl-f
-keymap.set({'n','i'}, '<C-f>', '/', opts)
 -- Save file by: Ctrl-s
 keymap.set({'n','i'}, '<C-s>', vim.cmd.w, opts)
 -- Pseudo-quit, aka close by: Alt-q
