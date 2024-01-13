@@ -1,6 +1,6 @@
 -- NEOVIM CONFIGURATION
 
--- Notes ----------------------------------------------------------------------
+-- Notes -----------------------------------------------------------------------
 
 -- Note: vim.cmd('set bla') == opt.bla = 
 
@@ -20,56 +20,58 @@
 local opt = vim.opt
 local g = vim.g
 local keymap = vim.keymap
+-- Current system time for choosing the brigt or dark color scheme
+local time = tonumber(os.date("%H"))
 
 -- g.mapleader = ' '
 
 
--- Plugin-Manager / Plugins ---------------------------------------------------
+-- Plugin-Manager / Plugins ----------------------------------------------------
 
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
-        -- Main Plugins -------------------------------------------------
-        Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
-        Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
-        Plug('nvim-lualine/lualine.nvim') -- LuaLine
-        Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
-        Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
-        Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
-        Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
-        Plug('romgrk/barbar.nvim') -- Tabline, alternative tbc: akinsho/bufferline
-        -- Nvim-Cmp
-        Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
-        Plug('neovim/nvim-lspconfig') -- LPSConfig
-        Plug('hrsh7th/cmp-nvim-lsp')
-        Plug('hrsh7th/cmp-buffer')
-        Plug('hrsh7th/cmp-path')
-        Plug('hrsh7th/cmp-cmdline')
-        -- Nvim-Cmp: For luasnip users.
-        Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
-        Plug('saadparwaiz1/cmp_luasnip')
-        -- TODO: Check friendly-snippet
-        -- Plug("rafamadriz/friendly-snippets")
+    -- Main Plugins -------------------------------------------------
+    Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
+    Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
+    Plug('nvim-lualine/lualine.nvim') -- LuaLine
+    Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
+    Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
+    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
+    Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
+    Plug('romgrk/barbar.nvim') -- Tabline, alternative tbc: akinsho/bufferline
+    -- Nvim-Cmp
+    Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
+    Plug('neovim/nvim-lspconfig') -- LPSConfig
+    Plug('hrsh7th/cmp-nvim-lsp')
+    Plug('hrsh7th/cmp-buffer')
+    Plug('hrsh7th/cmp-path')
+    Plug('hrsh7th/cmp-cmdline')
+    -- Nvim-Cmp: For luasnip users.
+    Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
+    Plug('saadparwaiz1/cmp_luasnip')
+    -- TODO: Check friendly-snippet
+    -- Plug("rafamadriz/friendly-snippets")
 
-        -- Experimental Plugins /  To be checked ...
-        Plug('marko-cerovac/material.nvim') -- Colorscheme material
-        Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
-        Plug('akinsho/git-conflict.nvim') -- Git-conflict visualization
-        -- TODO: Check Plug('numToStr/Comment')
-        -- TODO: Also check out the following
-        -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
-        -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
-        -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
-        -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
-        -- Plug('mhinz/vim-startify')
-        -- Plug 'ryanoasis/vim-devicons'
-        -- Plug 'honza/vim-snippets'
-        -- Plug 'preservim/tagbar' -- Tagbar for code navigation
-        -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
+    -- Experimental Plugins /  To be checked ...
+    Plug('marko-cerovac/material.nvim') -- Colorscheme material
+    Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
+    Plug('akinsho/git-conflict.nvim') -- Git-conflict visualization
+    -- TODO: Check Plug('numToStr/Comment')
+    -- TODO: Also check out the following
+    -- Plug('windwp/nvim-autopairs') -- Autopairs ?!
+    -- Plug('mg979/vim-visual-multi') -- Multiple cursors, must see!
+    -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
+    -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
+    -- Plug('mhinz/vim-startify')
+    -- Plug 'ryanoasis/vim-devicons'
+    -- Plug 'honza/vim-snippets'
+    -- Plug 'preservim/tagbar' -- Tagbar for code navigation
+    -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
 vim.call('plug#end') -- call plug#end()
 
 
--- General Editor Settings ----------------------------------------------------
+-- General Editor Settings -----------------------------------------------------
 
 opt.encoding = 'UTF-8'
 opt.guifont = "Cousine Nerd Font"
@@ -92,20 +94,20 @@ opt.incsearch = true
 opt.laststatus = 3
 
 
--- Additional Configuration Scripts in './Lua' --------------------------------
+-- Additional Configuration Scripts in './Lua' ---------------------------------
 
 require('cfg_nvimtree')
 require('cfg_treesitter')
-require('cfg_colorscheme')
 require('cfg_blankline')
 require('cfg_lspconfig')
 require('cfg_cmp')
 require('cfg_lualine')
 require('cfg_gitconflict')
 require('cfg_barbar')
+local color = require('cfg_colorscheme')
 
 
--- Key Remappings -------------------------------------------------------------
+-- Key Remappings --------------------------------------------------------------
 
 local opts = { noremap = true, silent = true }
 

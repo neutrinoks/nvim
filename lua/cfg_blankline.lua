@@ -6,8 +6,8 @@
 -- }
 
 require("ibl").setup {
-        scope = {
-                enabled = true,
-                -- highlight = highlight,
-        },
+    scope = {
+        enabled = true,
+        -- highlight = highlight,
+    },
 }
