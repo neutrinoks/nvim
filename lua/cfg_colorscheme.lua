@@ -75,13 +75,13 @@ vim.cmd('colorscheme material')
 -- material scheme, variants:
 -- darker, lighter, oceanic, palenight, deep ocean
 
-local function setcolorsnight()
+function setcolorsnight()
     vim.g.material_style = 'deep ocean'
     vim.cmd('colorscheme material')
 end
 
 
-local function setcolorsday()
+function setcolorsday()
     vim.g.material_style = 'lighter'
     vim.cmd('colorscheme material')
 end
