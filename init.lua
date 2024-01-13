@@ -148,3 +148,9 @@ keymap.set({'n','i'}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 keymap.set({'n','i'}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
 keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
 
+-- Setup colorscheme in dependency of current daytime --------------------------
+
+if time < 10 or time > 17 then
+    vim.api.nvim_command('NeuNight')
+end
+
