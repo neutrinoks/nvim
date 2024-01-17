@@ -23,26 +23,35 @@ local keymap = vim.keymap
 -- Current system time for choosing the brigt or dark color scheme
 local time = tonumber(os.date("%H"))
 
--- g.mapleader = ' '
-
+g.mapleader = ' '
 
 -- Plugin-Manager / Plugins ----------------------------------------------------
 
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
-    -- Main Plugins -------------------------------------------------
-    Plug('nvim-tree/nvim-tree.lua') -- NVim-Tree, file browser
-    Plug('nvim-tree/nvim-web-devicons') -- optional, for file icons
-    Plug('nvim-lualine/lualine.nvim') -- LuaLine
-    Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'}) -- Telescope
+    -- General & Tools ----------------------------------------------
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
-    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}) -- Tree-sitter
-    Plug('lukas-reineke/indent-blankline.nvim') -- Indent Blankline
-    Plug('romgrk/barbar.nvim') -- Tabline, alternative tbc: akinsho/bufferline
-    -- Nvim-Cmp
+    Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'})
+
+    -- File Browser -------------------------------------------------
+    Plug('nvim-tree/nvim-tree.lua')
+
+    -- Tabs & Top Line ----------------------------------------------
+    Plug('romgrk/barbar.nvim')
+    -- akinsho/bufferline
+
+    -- Status Line --------------------------------------------------
+    Plug('nvim-lualine/lualine.nvim')
+    
+    -- Code Assistance ----------------------------------------------
+    -- Language Server Protocol
+    Plug('neovim/nvim-lspconfig')
+    -- Auto Comment and Uncomment
+    Plug('tpope/vim-commentary')
+
+    -- Auto-Completion Tool Nvim-Cmp
     Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
-    Plug('neovim/nvim-lspconfig') -- LPSConfig
     Plug('hrsh7th/cmp-nvim-lsp')
     Plug('hrsh7th/cmp-buffer')
     Plug('hrsh7th/cmp-path')
@@ -53,9 +62,18 @@ vim.call('plug#begin')
     -- TODO: Check friendly-snippet
     -- Plug("rafamadriz/friendly-snippets")
 
+    -- Visualizations -----------------------------------------------
+    -- Syntax Highlighting
+    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+    -- Visualize Indenting
+    Plug('lukas-reineke/indent-blankline.nvim')
+
+    -- Commonly used ------------------------------------------------
+    -- Optional, but used in: nvim-tree, barbar
+    Plug('nvim-tree/nvim-web-devicons')
+    
     -- Experimental Plugins /  To be checked ...
     Plug('marko-cerovac/material.nvim') -- Colorscheme material
-    Plug('tpope/vim-commentary') -- Commentary (comment & uncomment code)
     Plug('akinsho/git-conflict.nvim') -- Git-conflict visualization
     -- TODO: Check Plug('numToStr/Comment')
     -- TODO: Also check out the following
@@ -64,10 +82,10 @@ vim.call('plug#begin')
     -- Plug('ryanoasis/vim-devicons') -- VimDevIcons (beautiful icons)
     -- Plug('tpope/vim-surround') -- Surround (parentheses, brackets, quotes, XML tags)
     -- Plug('mhinz/vim-startify')
-    -- Plug 'ryanoasis/vim-devicons'
-    -- Plug 'honza/vim-snippets'
-    -- Plug 'preservim/tagbar' -- Tagbar for code navigation
-    -- Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
+    -- Plug('ryanoasis/vim-devicons')
+    -- Plug('honza/vim-snippets')
+    -- Plug('preservim/tagbar') -- Tagbar for code navigation
+    -- Plug('terryma/vim-multiple-cursors') -- CTRL + N for multiple cursors
 vim.call('plug#end') -- call plug#end()
 
 
@@ -85,7 +103,7 @@ opt.smarttab = true
 opt.hlsearch = true
 opt.mouse = a
 opt.expandtab = true
-opt.scrolloff = 10
+opt.scrolloff = 5
 opt.colorcolumn = "101"
 opt.showmatch = true
 opt.cursorline = false
@@ -127,8 +145,8 @@ keymap.set('n', '<C-m>', vim.cmd.NvimTreeFocus, opts)
 
 -- Telescope relevant configuration
 local builtin = require('telescope.builtin')
-keymap.set('n', '<A-f>', builtin.find_files, opts)
-keymap.set('n', '<A-g>', builtin.live_grep, opts)
+keymap.set('n', '<leader>ff', builtin.find_files, opts)
+keymap.set('n', '<leader>fg', builtin.live_grep, opts)
 -- vim.keymap.set('n', '<leader>ft', builtin.git_files, {})
 -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
@@ -146,12 +164,13 @@ keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Barbar Keymapping
 keymap.set({'n','i'}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 keymap.set({'n','i'}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
+keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
 
 -- Setup colorscheme in dependency of current daytime --------------------------
 
 if time < 10 or time > 17 then
-    -- vim.api.cmd('NeuNight')
     vim.cmd(':NeuNight')
 end
 
