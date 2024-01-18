@@ -136,8 +136,8 @@ keymap.set({'n','i'}, '<C-s>', vim.cmd.w, opts)
 -- Pseudo-quit, aka close by: Alt-q
 keymap.set('n', '<A-q>', vim.cmd.q, opts)
 -- Setup bright daylight or darg night colorscheme
-keymap.set('n', '<C-A-n>', '<Cmd>NeuNight<CR>', opts)
-keymap.set('n', '<C-A-b>', '<Cmd>NeuDay<CR>', opts)
+keymap.set('n', '<C-A-l>', '<Cmd>Light<CR>', opts)
+keymap.set('n', '<C-A-d>', '<Cmd>Dark<CR>', opts)
 
 -- NvimTree Keymapping
 keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle, opts)
