@@ -49,18 +49,23 @@ vim.call('plug#begin')
     Plug('neovim/nvim-lspconfig')
     -- Auto Comment and Uncomment
     Plug('tpope/vim-commentary')
-
     -- Auto-Completion Tool Nvim-Cmp
-    Plug('hrsh7th/nvim-cmp') -- Nvim CMP (Completion with LspConfig
+    Plug('hrsh7th/nvim-cmp')
+    -- LSP source for nvim-cmp
     Plug('hrsh7th/cmp-nvim-lsp')
-    Plug('hrsh7th/cmp-buffer')
-    Plug('hrsh7th/cmp-path')
-    Plug('hrsh7th/cmp-cmdline')
-    -- Nvim-Cmp: For luasnip users.
-    Plug('L3MON4D3/LuaSnip', {['tag'] = 'v1.2.1', ['do'] = 'make install_jsregexp'})
+    -- Snippets Plugin
+    Plug('L3MON4D3/LuaSnip', {['tag'] = 'v2.*', ['do'] = 'make install_jsregexp'})
+    -- Snippet source for nvim-cmp
     Plug('saadparwaiz1/cmp_luasnip')
-    -- TODO: Check friendly-snippet
-    -- Plug("rafamadriz/friendly-snippets")
+    -- Coc
+    Plug('ms-jpq/coq_nvim') -- , {['branch'] = 'coc'}
+    Plug('ms-jpq/coq.artifacts', {['branch'] = 'artifacts'})
+    Plug('ms-jpq/coq.thirdparty', {['branch'] = '3p'})
+    -- TODO:
+    -- Plug("rafamadriz/friendly-snippets") Check: https://github.com/L3MON4D3/LuaSnip
+    -- Plug('hrsh7th/cmp-buffer')
+    -- Plug('hrsh7th/cmp-path')
+    -- Plug('hrsh7th/cmp-cmdline')
 
     -- Visualizations -----------------------------------------------
     -- Syntax Highlighting
@@ -118,11 +123,11 @@ require('cfg_nvimtree')
 require('cfg_treesitter')
 require('cfg_blankline')
 require('cfg_lspconfig')
-require('cfg_cmp')
+require('cfg_cmp_luasnip')
 require('cfg_lualine')
 require('cfg_gitconflict')
 require('cfg_barbar')
-local color = require('cfg_colorscheme')
+require('cfg_colorscheme')
 
 
 -- Key Remappings --------------------------------------------------------------
@@ -171,6 +176,6 @@ keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
 -- Setup colorscheme in dependency of current daytime --------------------------
 
 if time < 10 or time > 17 then
-    vim.cmd(':NeuNight')
+    vim.cmd(':Light')
 end
 

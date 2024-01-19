@@ -5,11 +5,12 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
 ### Requirements
 
 - NeoVim in version `0.9.0` is required!
-- Nerd Fonts are required for nice display of icons (currently Cousine Nerd Font is configured,
+- **Nerd Fonts** are required for nice display of icons (currently Cousine Nerd Font is configured,
   which is packed into this directory)
-- Because telescope is included in this configuration, `ripgrep` package is required.
-- Because tree-sitter is configured for Rust and Python linting, `pyright` needs to be installed.
+- Because **telescope** is included in this configuration, `ripgrep` package is required.
+- Because **tree-sitter** is configured for Rust and Python linting, `pyright` needs to be installed.
 - Some package needs `nodejs`, so needs to be installed.
+- Currently integrating **ms-jpg/coc**, which needs `python` + `pip` + `venv`.
 
 ### Installation
 
@@ -17,10 +18,22 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
     - Install `nodejs`, e.g. 
       ```sh
       sudo apt install nodejs
+      sudo pamac install nodejs
       ```
     - Install `ripgrep`, e.g.
       ```sh
       sudo apt install ripgrep
+      sudo pamac install ripgrep
+      ```
+    - Install `python`, e.g.
+      ```sh
+      sudo apt install python python-pip
+      sudo pamac install python python-pip
+      ```
+    - Install `venv` or `virtualenv` for Python:
+      ```sh
+      sudo apt install venv
+      sudo pamac install virtualenv
       ```
     - Install pyright with the tool of your choice, e.g. 
       ```sh
