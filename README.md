@@ -32,8 +32,8 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
       ```
     - Install `venv` or `virtualenv` for Python:
       ```sh
-      sudo apt install venv
-      sudo pamac install virtualenv
+      sudo apt install python3-venv
+      sudo pamac install python-virtualenv
       ```
     - Install pyright with the tool of your choice, e.g. 
       ```sh

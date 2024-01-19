@@ -65,10 +65,11 @@ cmp.setup {
 
 -- Automatically start coq
 vim.g.coq_settings = { auto_start = true }
+local coq = require('coq')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup(require('coq').lsp_ensure_capabilities({
+    lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
         -- on_attach = my_custom_on_attach,
     }))
 end
