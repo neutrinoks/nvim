@@ -176,6 +176,6 @@ keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
 -- Setup colorscheme in dependency of current daytime --------------------------
 
 if time < 10 or time > 17 then
-    vim.cmd(':Light')
+    vim.cmd(':Dark')
 end
 
