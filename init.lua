@@ -97,7 +97,7 @@ vim.call('plug#end') -- call plug#end()
 -- General Editor Settings -----------------------------------------------------
 
 opt.encoding = 'UTF-8'
-opt.guifont = "Cousine Nerd Font"
+opt.guifont = "Hack Nerd Font"
 opt.number = true
 opt.relativenumber = true
 opt.autoindent = true
