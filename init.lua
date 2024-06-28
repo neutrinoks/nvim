@@ -134,15 +134,15 @@ require('cfg_colorscheme')
 
 local opts = { noremap = true, silent = true }
 
+-- Pseudo-quit, aka close by: Alt-q
+keymap.set('n', '<S-q>', vim.cmd.q, opts)
+-- Save file by: Ctrl-s
+keymap.set('n', '<C-s>', vim.cmd.w, opts)
 -- Exit insert mode, return to normal mode, by jj
 keymap.set('i', 'nn', '<ESC>', opts)
--- Save file by: Ctrl-s
-keymap.set({'n','i'}, '<leader>ss', vim.cmd.w, opts)
--- Pseudo-quit, aka close by: Alt-q
-keymap.set('n', '<leader>qq', vim.cmd.q, opts)
 -- Setup bright daylight or darg night colorscheme
-keymap.set('n', '<leader>ll', '<Cmd>Light<CR>', opts)
-keymap.set('n', '<leader>dd', '<Cmd>Dark<CR>', opts)
+keymap.set({'n','i'}, '<leader>ll', '<Cmd>Light<CR>', opts)
+keymap.set({'n','i'}, '<leader>dd', '<Cmd>Dark<CR>', opts)
 
 -- NvimTree Keymapping
 keymap.set('n', '<C-n>', vim.cmd.NvimTreeToggle, opts)
