@@ -134,12 +134,11 @@ require('cfg_colorscheme')
 
 local opts = { noremap = true, silent = true }
 
--- Exit insert mode, return to normal mode, by jj
-keymap.set('i', 'nn', '<ESC>', opts)
+-- Instant quit by Ctrl-q
+keymap.set('n', '<C-q>', vim.cmd.q, opts)
+keymap.set('i', '<C-q>', '<ESC>', opts)
 -- Save file by: Ctrl-s
-keymap.set({'n','i'}, '<leader>ss', vim.cmd.w, opts)
--- Pseudo-quit, aka close by: Alt-q
-keymap.set('n', '<leader>qq', vim.cmd.q, opts)
+keymap.set('n', '<C-s>', vim.cmd.w, opts)
 -- Setup bright daylight or darg night colorscheme
 keymap.set('n', '<leader>ll', '<Cmd>Light<CR>', opts)
 keymap.set('n', '<leader>dd', '<Cmd>Dark<CR>', opts)
@@ -167,10 +166,10 @@ keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- -> in cfg_cmp.lua
 
 -- Barbar Keymapping
-keymap.set({'n','i'}, '<C-,>', '<Cmd>BufferPrevious<CR>', opts)
-keymap.set({'n','i'}, '<C-.>', '<Cmd>BufferNext<CR>', opts)
-keymap.set('n', '<C-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-keymap.set('n', '<C->>', '<Cmd>BufferMoveNext<CR>', opts)
+keymap.set({'n','i'}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+keymap.set({'n','i'}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
+keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
 
 -- Setup colorscheme in dependency of current daytime --------------------------
