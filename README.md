@@ -18,31 +18,43 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
     - Install `nodejs`, e.g. 
       ```sh
       sudo apt install nodejs
+      ```
+      ```sh
       sudo pamac install nodejs
       ```
     - Install `ripgrep`, e.g.
       ```sh
       sudo apt install ripgrep
+      ```
+      ```sh
       sudo pamac install ripgrep
       ```
     - Install `python`, e.g.
       ```sh
       sudo apt install python python-pip
+      ```
+      ```sh
       sudo pamac install python python-pip
       ```
     - Install `venv` or `virtualenv` for Python:
       ```sh
       sudo apt install python3-venv
+      ```
+      ```sh
       sudo pamac install python-virtualenv
       ```
-    - Install pyright with the tool of your choice, e.g. 
-      ```sh
-      npm install --global pyright
-      ```
-      or
-      ```sh
-      pip install pyright
-      ```
+    - Install language servers
+        - pyright with the tool of your choice, e.g. 
+          ```sh
+          npm install --global pyright
+          ```
+          ```sh
+          pip install pyright
+          ```
+        - rust-analyzer
+          ```sh
+          rustup component add rust-analyzer
+          ```
 - Step 2: Install some Nerd Font of your choice (this config uses Cousine Nerd Font)
     - Cousine Nerd Font is available here: [Cousine Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Cousine.zip)
     - Extract and copy to your local TTF folder, e.g.
@@ -68,6 +80,10 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
   :PlugInstall
   ```
 - Step 5: Restart to make all changes applied properly.
+- Step 6: Wait until tree-sitter updates all required languages and build COQ depdendencies:
+  ```sh
+  :COQdeps
+  ```
 
 ### Current contained plugins
 

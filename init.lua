@@ -30,7 +30,7 @@ g.mapleader = ' '
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
-    -- General & Tools ----------------------------------------------
+    -- Fuzzy Finding, File Search -----------------------------------
     Plug('nvim-lua/plenary.nvim') -- Needed by Telescope
     Plug('nvim-telescope/telescope.nvim', {['branch'] = '0.1.x'})
 
@@ -43,6 +43,12 @@ vim.call('plug#begin')
 
     -- Status Line --------------------------------------------------
     Plug('nvim-lualine/lualine.nvim')
+
+    -- Tree-Sitter & Visualizations ---------------------------------
+    -- Syntax Detection & Syntax Highlighting
+    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+    -- Visualize Indenting
+    Plug('lukas-reineke/indent-blankline.nvim')
     
     -- Code Assistance ----------------------------------------------
     -- Language Server Protocol
@@ -66,12 +72,6 @@ vim.call('plug#begin')
     -- Plug('hrsh7th/cmp-buffer')
     -- Plug('hrsh7th/cmp-path')
     -- Plug('hrsh7th/cmp-cmdline')
-
-    -- Visualizations -----------------------------------------------
-    -- Syntax Highlighting
-    Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
-    -- Visualize Indenting
-    Plug('lukas-reineke/indent-blankline.nvim')
 
     -- Commonly used ------------------------------------------------
     -- Optional, but used in: nvim-tree, barbar

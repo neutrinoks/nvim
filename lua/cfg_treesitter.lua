@@ -3,7 +3,7 @@
 require('nvim-treesitter.configs').setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = { 
-        "bash", "c", "cpp", "css", "html", "json", "lua", "php", "python", "rust", "vim"
+        "bash", "c", "cpp", "css", "dart", "html", "json", "lua", "php", "python", "rust", "vim"
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -52,4 +52,10 @@ require('nvim-treesitter.configs').setup {
             node_decremental = "grm",
         },
     },
+
+    -- require'nvim-treesitter.configs'.setup {
+    --     indent = {
+    --         enable = true
+    --     }
+    -- }
 }
