@@ -26,7 +26,6 @@ local time = tonumber(os.date("%H"))
 g.mapleader = ' '
 
 -- Plugin-Manager / Plugins ----------------------------------------------------
-
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
@@ -119,15 +118,17 @@ opt.laststatus = 3
 
 -- Additional Configuration Scripts in './Lua' ---------------------------------
 
+-- IDE Editor Stuff
 require('cfg_nvimtree')
-require('cfg_treesitter')
-require('cfg_blankline')
-require('cfg_lspconfig')
-require('cfg_cmp_luasnip_coq')
-require('cfg_lualine')
-require('cfg_gitconflict')
 require('cfg_barbar')
+require('cfg_treesitter')
+require('cfg_lualine')
 require('cfg_colorscheme')
+
+-- Code Assistance Stuff
+require('cfg_lsp_coq_luasnip')
+require('cfg_blankline')
+require('cfg_gitconflict')
 
 
 -- Key Remappings --------------------------------------------------------------
