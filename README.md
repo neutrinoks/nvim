@@ -1,27 +1,41 @@
 # NeoVim Configuration
 
-This is my personal NeoVim configuration. Just stored in a repository for being flexible, when experimenting with third-party pre-configured scripts (e.g. NvChad).
+This is my personal NeoVim configuration. It was completely refactored on March the 14th, 2025,
+after getting totally inspired by typecraft and its [video series](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn).
+
+### Current Plugin Setup
+
+- Upper tab bar:
+  `romgrk/barbar`
+- Lower status bar:
+  `nvim-lualine/lualine`
+- File navigator:
+  `nvim-neo-tree/neo-tree`
+- Color schemes:
+  `catppuccin/nvim`
+- Tree sitter:
+  `nvim-treesitter/nvim-treesitter`
+- Auto completion and snippets: 
+  `hrsh7th/cmp-nvim-lsp`, `L3MON4D3/LuaSnip`, `rafamadriz/friendly-snippets`, and `hrsh7th/nvim-cmp`
+- LSP installtion & configuration:
+  `williamboman/mason`, `williamboman/mason-lspconfig`, and `neovim/nvim-lspconfig`
+- Formatting, linting:
+  `nvimtools/none-ls`
+- Fuzzy finding:
+  `nvim-telescope/telescope`
 
 ### Requirements
+
+**Requirements need to be verified again, after refactoring it completely**
 
 - NeoVim in version `0.9.0` is required!
 - **Nerd Fonts** are required for nice display of icons (currently Cousine Nerd Font is configured,
   which is packed into this directory)
 - Because **telescope** is included in this configuration, `ripgrep` package is required.
-- Because **tree-sitter** is configured for Rust and Python linting, `pyright` needs to be installed.
-- Some package needs `nodejs`, so needs to be installed.
-- Currently integrating **ms-jpg/coc**, which needs `python` + `pip` + `venv`.
 
 ### Installation
 
 - Step 1: Install requirements mentioned above
-    - Install `nodejs`, e.g. 
-      ```sh
-      sudo apt install nodejs
-      ```
-      ```sh
-      sudo pamac install nodejs
-      ```
     - Install `ripgrep`, e.g.
       ```sh
       sudo apt install ripgrep
@@ -29,32 +43,6 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
       ```sh
       sudo pamac install ripgrep
       ```
-    - Install `python`, e.g.
-      ```sh
-      sudo apt install python python-pip
-      ```
-      ```sh
-      sudo pamac install python python-pip
-      ```
-    - Install `venv` or `virtualenv` for Python:
-      ```sh
-      sudo apt install python3-venv
-      ```
-      ```sh
-      sudo pamac install python-virtualenv
-      ```
-    - Install language servers
-        - pyright with the tool of your choice, e.g. 
-          ```sh
-          npm install --global pyright
-          ```
-          ```sh
-          pip install pyright
-          ```
-        - rust-analyzer
-          ```sh
-          rustup component add rust-analyzer
-          ```
 - Step 2: Install some Nerd Font of your choice (this config uses Cousine Nerd Font)
     - Cousine Nerd Font is available here: [Cousine Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Cousine.zip)
     - Extract and copy to your local TTF folder, e.g.
@@ -72,36 +60,12 @@ This is my personal NeoVim configuration. Just stored in a repository for being 
 - Step 4: Clone this repository and install VimPlug:
   ```sh
   git clone https://github.com/neutrinoks/nvim.git ~/.config/nvim
-  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   ```
-- Step 4: When running NeoVim for the first time execute:
-  ```
-  :PlugInstall
-  ```
-- Step 5: Restart to make all changes applied properly.
-- Step 6: Wait until tree-sitter updates all required languages and build COQ depdendencies:
-  ```sh
-  :COQdeps
-  ```
-
-### Current contained plugins
-
-- nvim-tree/nvim-tree: 
-- nvim-tree/nvim-web-devicons
-- nvim-lualine/lualine
-- nvim-telescope/telescope
-- nvim-lua/plenary
-- nvim-treesitter/nvim-treesitter
-- lukas-reineke/indent-blankline
-- romgrk/barbar
-- hrsh7th/nvim-cmp & several addons
-- neovim/nvim-lspconfig
-- L3MON4D3/LuaSnip
+- Step 5: Restart to make all changes applied properly and wait until finished, restart again.
 
 ### Using another Nerd Font
 
-If you want to use another Nerd Font, you have to specifiy it in `init.lua` line 75, e.g.
+If you want to use another Nerd Font, you have to specifiy it in `lua/global.lua` line 4, e.g.
 ```lua
 opt.guifont = "Cousine Nerd Font"
 ```
